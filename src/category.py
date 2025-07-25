@@ -23,6 +23,6 @@ class Category:
         return product_str
 
     def add_product(self, product: Product):
-        self.__products.append(product)
+        self.__products.append(product) if isinstance(product, Product) else print ("Не является атрибутом класса Product")
         Category.product_count += 1
 
