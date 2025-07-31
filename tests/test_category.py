@@ -36,6 +36,7 @@ def test_category_init(caregory_1_fixture, caregory_2_fixture):
     assert len(caregory_1_fixture.products) == 100
     assert caregory_1_fixture.category_count == 2
     assert caregory_2_fixture.product_count == 6
+    assert str(caregory_1_fixture) == "стройматериалы, количество продуктов: 6 шт."
 
 
 def test_category_products(caregory_1_fixture):
