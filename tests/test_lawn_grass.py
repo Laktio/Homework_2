@@ -23,6 +23,12 @@ def test_lawn_grass(lawn_grass1):
     assert lawn_grass1.germination_period == "7 дней"
     assert lawn_grass1.color == "Зеленый"
 
+
 def test_lawn_grass_sum(lawn_grass1, lawn_grass2):
     result = lawn_grass1 + lawn_grass2
     assert result == 16750.0
+
+
+def test_lawn_grass_error(lawn_grass1):
+    with pytest.raises(TypeError):
+        result = lawn_grass1 + 1

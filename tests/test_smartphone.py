@@ -28,3 +28,8 @@ def test_smartphone(smartphone1):
 def test_smartphone_sum(smartphone1, smartphone2):
     result = smartphone1 + smartphone2
     assert result == 2580000.0
+
+
+def test_smartphone_error(smartphone1):
+    with pytest.raises(TypeError):
+        result = smartphone1 + 1
