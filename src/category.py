@@ -25,7 +25,6 @@ class Category:
         return f'{self.name}, количество продуктов: {sum(product_quantity)} шт.'
 
     @property
-
     def products(self):
         product_str = ""
         for product in self.__products:
@@ -33,6 +32,10 @@ class Category:
         return product_str
 
     def add_product(self, product: Product):
-        self.__products.append(product) if isinstance(product, Product) else print ("Не является атрибутом класса Product")
-        Category.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
+
 
