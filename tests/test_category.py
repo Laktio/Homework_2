@@ -30,6 +30,14 @@ def caregory_2_fixture():
     )
 
 
+@pytest.fixture
+def caregory_3_fixture():
+    return Category(
+        name="продукт питания",
+        description="для обеда строителей"
+    )
+
+
 def test_category_init(caregory_1_fixture, caregory_2_fixture):
     assert caregory_1_fixture.name == "стройматериалы"
     assert caregory_2_fixture.description == "для обеда строителей"
@@ -42,4 +50,7 @@ def test_category_init(caregory_1_fixture, caregory_2_fixture):
 def test_category_products(caregory_1_fixture):
     caregory_1_fixture.products == 'кирпич, 11.5 руб. Остаток: 10 шт.\n'
 
+
+def test_category_middle_price(caregory_3_fixture):
+    assert caregory_3_fixture.middle_price() == 0
 
