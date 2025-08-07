@@ -20,6 +20,14 @@ def product_fixture_2():
         quantity=20
     )
 
+@pytest.fixture
+def product_fixture_3():
+    return Product(
+        name="кирпич",
+        description="новый",
+        price=0,
+        quantity=0
+    )
 
 
 def test_product_init(product_fixture):
@@ -40,4 +48,13 @@ def test_product_init(product_fixture):
 def test_product_price_sum(product_fixture, product_fixture_2):
     result = product_fixture + product_fixture_2
     assert result == 35
+
+def test_product_no_price():
+    with pytest.raises(ValueError):
+        Product(
+            name="кирпич",
+            description="новый",
+            price=0,
+            quantity=0
+        )
 
